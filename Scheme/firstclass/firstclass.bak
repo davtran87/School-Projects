@@ -1,0 +1,44 @@
+#lang racket
+(display "Anonymous Function\n")
+((lambda (n) (* n n)) 5)
+
+(display "\nNamed Function\n")
+(define square (lambda(n) (* n n)))
+(square 5)
+
+(display "\nFunction List\n")
+(define cube (lambda(n) (* n n n)))
+(define list '(square cube))
+(display list)
+
+(display "\n\nCompare List of Functions\n")
+(define list2 '(cube square))
+(define list3 '(square cube))
+(display list)
+(display list2)
+(display list3)
+(display "\n")
+(equal? list list2)
+(equal? list list3)
+(eq? square cube)
+
+(display "\nPassing Functions\n")
+(cube(square(square 2)))
+(cube(square(cube(square 2))))
+
+(display "\nReturning a function as a result of another function\n")
+(define mult2 (lambda(n) (* n 2)))
+(define mult3 (lambda(n) (* n 3)))
+(define multFunction (lambda(x y)
+(cond
+  [(equal? x 1) (mult2 y)]
+  [(equal? x 2) (mult3 y)])))
+(multFunction 1 2)
+(multFunction 2 2)
+
+
+
+
+
+
+  

@@ -1,0 +1,94 @@
+#File: triangle.rb
+#Author: David Tran
+
+class Triangle
+  def initialize(sideA, sideB, sideC)
+    @a = sideA
+    @b = sideB
+    @c = sideC
+    @isTriangle = false;
+  end
+  # accessor for sides a, b, c
+  attr_accessor :a, :b, :c
+
+  #Test to test if it is a triangle and print what kind.
+  def test
+    @isTriangle = true
+    if (@a == @b) && (@b == @c) && (@a == @c) && @isTriangle
+      puts ("(1) equilateral")
+      @isTriangle = true
+    end
+    if (@a == @b) || (@bB == @c) && @isTriangle
+      puts ("(2) isosceles")
+      @isTriangle = true
+    end
+    if (@a != @b) && (@bB != @c) && (@a != @c) && @isTriangle
+      puts ("(3) scalene")
+      @isTriangle = true
+    end
+    if (@a**2 + @b**2 == (@c**2).round(6)) || (@a**2 + @c**2 == (@b**2).round(6)) || (@b**2 + @c**2 == (@a**2).round(6)) && @isTriangle
+      puts ("(4) right")
+      @isTriangle = true
+    end
+    if @a + @b <= @c || @a + @c <= @b || @c + @b <= @a
+      puts ("(5) not a triangle")
+      @isTriangle = false
+    end
+    return @isTriangle
+  end
+
+  #computes perimeter of a triangle
+  def perimeter
+    if @isTriangle
+      perimeter = @a + @b + @c
+      print  "perimeter= #{perimeter}\n"
+    else
+      puts "Could not calculate perimeter, not a triangle"
+    end
+  end
+
+  #computes area of a triangle using Heron's Formula
+  def area
+    if @isTriangle
+      s = (@a+@b+@c)/2
+      area = Math.sqrt(s*(s-@a)*(s-@b)*(s-@c))
+      print "area= #{area}\n"
+    else
+      puts "Could not calculate area, not a triangle"
+    end
+  end
+end
+puts
+triangle = Triangle.new(3, 5, 4)
+triangle.test
+triangle.perimeter
+triangle.area
+puts
+triangle1 = Triangle.new(1, 2, 3)
+triangle1.test
+triangle1.perimeter
+triangle1.area
+puts
+triangle2 = Triangle.new(15, 15, 15)
+triangle2.test
+triangle2.perimeter
+triangle2.area
+
+=begin OUTPUT:
+(3) scalene
+(4) right
+perimeter= 12
+area= 6.0
+
+(3) scalene
+(5) not a triangle
+Could not calculate perimeter, not a triangle
+Could not calculate area, not a triangle
+
+(1) equilateral
+(2) isosceles
+perimeter= 45
+area= 86.86771552193599
+=end
+
+

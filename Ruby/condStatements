@@ -1,0 +1,81 @@
+# Author: David Tran
+# File: condStatments.rb
+
+#if-then
+x = 1
+y = 2
+if x<y
+  then puts "x is less than y"
+end
+=begin OUTPUT:
+x is less than y
+=end
+
+#if-else
+if x<y
+  puts "x is less than y"
+else
+  puts "y is less than x"
+end
+=begin OUTPUT:
+x is less than y
+=end
+
+#if-elseif-else
+if x!=y
+  puts "x and y are not equal"
+elsif
+  puts "x and y are equal"
+else
+  puts "error"
+end
+=begin OUTPUT:
+x and y are not equal
+=end
+
+#unless
+unless x==y
+  puts "x does not equal y"
+end
+=begin OUTPUT:
+x does not equal y
+=end
+
+#unless-else
+unless x==y
+  puts "x and y are not equal"
+else
+  puts "x is equal to y"
+end
+=begin OUTPUT:
+x and y are not equal
+=end
+
+#if unless modifier
+"x and y are not equal" if x!=y
+print("hi how are you\n") unless x==y
+=begin OUTPUT:
+hi how are you
+=end
+
+#Ternary
+str = x==y ?
+    "x equals y":"x does not equal y"
+puts str
+=begin OUTPUT:
+x does not equal y
+=end
+
+#Case
+name = case
+         when x==1 then "one"
+         when x==2 then "two"
+         when x==3 then "three"
+         when y==2 then "two"
+         else
+           puts "error"
+       end
+puts name
+=begin OUTPUT:
+one
+=end

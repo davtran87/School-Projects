@@ -1,0 +1,146 @@
+# Author: David Tran
+# File: loopsIterators.rb
+
+#while-do
+i=0
+while i!=4 do
+  print(i)
+  i+=1
+end
+puts
+=begin
+OUTPUT:
+0123
+=end
+
+#until-do
+i=0
+until i==4 do
+  print(i)
+  i+=1
+end
+puts
+=begin
+OUTPUT:
+0123
+=end
+
+#while/until modifiers
+#while modifier
+x=0
+print(x+=1) while x<3
+puts
+=begin
+OUTPUT:
+123
+=end
+
+#until modifier
+c=0
+print(c-=1) until c<-2
+puts
+=begin
+OUTPUT:
+-1-2-3
+=end
+
+#for-in-do
+b =[1,2,3,4,5]
+for num in b do
+ print(num)
+end
+puts
+=begin
+OUTPUT:
+12345
+=end
+
+#upto-downto
+k=1
+1.upto(10){|n| print( "#{n} ")}
+puts
+10.downto(1){|n| print"#{n} "}
+puts
+=begin
+OUTPUT:
+1 2 3 4 5 6 7 8 9 10
+10 9 8 7 6 5 4 3 2 1
+=end
+
+#times
+p=2
+3.times{puts "hello"}
+#explicit
+(p*3).times{|n|print"#{n} "}
+puts
+=begin
+OUTPUT:
+hello
+hello
+hello
+0 1 2 3 4 5
+=end
+
+#each
+b.each{|n|print n}
+puts
+=begin
+OUTPUT:
+12345
+=end
+
+#each with index
+array =[3,2,1]
+array.each_with_index do |num, element|
+print "element: #{num} index: #{element} "
+end
+puts
+=begin
+OUTPUT:
+element: 3 index: 0 element: 2 index: 1 element: 1 index: 2
+=end
+
+#map
+puts array.map{|x|x*x}
+=begin
+OUTPUT:
+9
+4
+1
+=end
+
+#step
+0.step(10,2) do |x|
+  print x
+end
+puts
+=begin
+OUTPUT:
+0246810
+=end
+
+#collect
+square = [1,2,3].collect{|x|x**2}
+print square
+puts
+=begin
+OUTPUT:
+[1, 4, 9]
+=end
+
+#select
+less6 = (1..10).select{|x|x<6}
+print less6
+puts
+=begin
+OUTPUT:
+[1, 2, 3, 4, 5]
+=end
+
+#reject
+no5 = (1..10).reject{|x|x==5}
+print no5
+=begin
+OUTPUT:
+[1, 2, 3, 4, 6, 7, 8, 9, 10]
+=end

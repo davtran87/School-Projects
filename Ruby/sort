@@ -1,0 +1,30 @@
+# Author:David Tran
+# File: sort.rb
+# Purpose: uses bubble sort to sort an array with out changing the original array
+
+def sort(v)
+  array = v.dup
+  swap = true;
+  lastElement = 1
+  while swap && lastElement <= v.length
+    i=0
+    swap = false
+    while i<(v.length-lastElement)
+      if array[i] > array[i+1] then
+        array[i], array[i+1] = array[i+1], array[i]
+        swap=true
+      end
+      i+=1
+    end
+    lastElement+=1
+  end
+  return array
+end
+
+result = sort([1,4,6,2,8,3,10])
+p result
+
+=begin OUTPUT:
+[1, 2, 3, 4, 6, 8, 10]
+=end
+

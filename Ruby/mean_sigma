@@ -1,0 +1,20 @@
+#Author: David Tran
+#File: mean_sigma.rb
+def mean(v)
+  length = v.length.to_f
+  sum = v.inject(:+).to_f
+  avg = sum/length
+  sigma = Math.sqrt(v.collect{|x| ((x - avg)**2)}.inject(:+) * (1/length))
+  return avg, sigma
+end
+
+result = mean([1,2,3])
+print result
+puts
+result2 = mean([20,20,20])
+print result2
+
+=begin OUTPUT:
+[2.0, 0.816496580927726]
+[20.0, 0.0]
+=end
